@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="categories_recursive_extend" inherit_id="website_sale.categories_recursive">
+        <xpath expr="//li[@class='nav-item']/a" position="inside">
+            <t t-if="c.image_1920">
+                <img t-att-src="image_data_uri(c.image)" alt="Image categorie"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>
