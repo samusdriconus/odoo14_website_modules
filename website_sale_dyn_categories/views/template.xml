@@ -1,10 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+
+    <template id="assets_frontend_extend" inherit_id="website.assets_frontend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/css" href="/website_sale_dyn_categories/static/src/css/style.css" />        
+        </xpath>
+    </template>
+
     <template id="categories_recursive_extend" inherit_id="website_sale.categories_recursive">
-        <xpath expr="//li[@class='nav-item']/a" position="inside">
-            <t t-if="c.image_1920">
-                <img t-att-src="image_data_uri(c.image)" alt="Image categorie"/>
-            </t>
+     
+        <xpath expr="//li[@class='nav-item']/a" position="replace">
+            <a t-att-href="keep('/shop/category/' + slug(c), category=0)" t-attf-class="categ-item nav-link #{'active' if c.id == category.id else ''}">
+                <t t-if="c.image_1920">
+                    <img class="img-categ-item" t-att-src="image_data_uri(c.image_1920)" alt="Image categorie"/>
+                </t>
+                <t t-if="not c.image_1920">
+                    <img class="img-categ-item" src="/website_sale_dyn_categories/static/img/no_image_available-product.png"  alt="Image categorie"/>
+                </t>
+                <span t-field="c.name"/>
+            </a>           
         </xpath>
     </template>
 </odoo>
