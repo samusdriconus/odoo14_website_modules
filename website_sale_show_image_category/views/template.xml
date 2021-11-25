@@ -8,7 +8,6 @@
     </template>
 
     <template id="categories_recursive_extend" inherit_id="website_sale.categories_recursive">
-     
         <xpath expr="//li[@class='nav-item']/a" position="replace">
             <a t-att-href="keep('/shop/category/' + slug(c), category=0)" t-attf-class="categ-item nav-link #{'active' if c.id == category.id else ''}">
                 <t t-if="c.image_1920">
@@ -20,5 +19,6 @@
                 <span t-field="c.name"/>
             </a>           
         </xpath>
+        
     </template>
 </odoo>

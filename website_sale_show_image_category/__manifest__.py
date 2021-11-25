@@ -3,10 +3,8 @@
     'version': '1.0',
     'summary': 'Website Dynamic Categories Show',
     'category': 'website,sale',
-    'author': 'Azertics',
-    'maintainer': 'Azertics',
-    'website': 'www.azertics.com',
-  
+    'author': 'Saidi Oussama',
+    'maintainer': 'Saidi Oussama',  
     'depends': [
         'website','website_sale'
     ],
